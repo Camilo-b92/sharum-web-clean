@@ -52,4 +52,3 @@ npm run preview
 
 - Los assets de imágenes provienen de Figma (URLs temporales con vigencia de ~7 días).
   Para producción, reemplazarlos por imágenes locales en `/public/`.
-- Todo el CSS está centralizado en `src/index.css`, organizado por secciones comentadas.
