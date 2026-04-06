@@ -313,3 +313,10 @@
   .nos-modal-card       { padding: 52px 24px 28px; }
   .nos-modal-photo-wrap { width: 80px; height: 80px; top: -30px; right: 16px; }
 }
+
+/* ── Ícono de propósito como imagen ─────────────────────────────────────────── */
+.nos-prop-icon {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}

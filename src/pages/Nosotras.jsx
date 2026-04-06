@@ -1,28 +1,31 @@
 import { useState } from 'react';
 import Footer from '../components/Footer';
 
-// ── Assets de Figma ──────────────────────────────────────────────────────────
-const teamPhoto1  = '/Mafe.png';
-const teamPhoto2  = '/Caro.png';
-const teamPhoto3  = '/Mishi.png';
-const bannerLeft  = '/Paisaje Anarajado.png';
-const bannerRight = '/Paisaje de Noche.png';
-const sharuLogo   = 'https://www.figma.com/api/mcp/asset/f145d34b-f3c0-405f-8f2b-9fafcff21838';
+// ── Fotos del equipo (carpeta /public) ───────────────────────────────────────
+const teamPhoto1 = '/Mafe.jpg';
+const teamPhoto2 = '/Caro.png';
+const teamPhoto3 = '/Mishi.png';
+const bannerLeft  = 'https://www.figma.com/api/mcp/asset/86ab9081-0659-474a-b377-5ac277f89529';
+const bannerRight = 'https://www.figma.com/api/mcp/asset/550e41b2-eb90-42f2-96a8-b24396f50683';
+const sharuLogo = '/logo.png';
+const iconMision   = '/Iconos de Mensajes.png';
+const iconPropósito = '/Signo de Interrogacion.png';
+const iconVision   = '/Ojo.png';
 
-// ── Datos ────────────────────────────────────────────────────────────────────
+// ── Datos ─────────────────────────────────────────────────────────────────────
 const propositos = [
   {
-    emoji: '💬',
+    icon: iconMision,
     title: 'Misión',
     text: 'Preservar y reavivar la música y las tradiciones de la comunidad colombiana por medio de una narrativa fantástica, mostrando cómo la voz, el canto y la danza pueden revivir el espíritu colectivo y restablecer la armonía cultural.',
   },
   {
-    emoji: '❓',
+    icon: iconPropósito,
     title: '¿Cuál Es Nuestro Propósito?',
     text: 'Preservar la música y las tradiciones culturales como elementos vivos e esenciales de la identidad colectiva, utilizando el relato fantástico como vehículo para que el canto y el baile permanezcan presentes y valiosos en la memoria de la comunidad.',
   },
   {
-    emoji: '👁️',
+    icon: iconVision,
     title: 'Visión',
     text: 'Inspirar en el presente y en el futuro el reconocimiento de la música como fuerza vital de identidad y unión, motivando a la comunidad colombiana a valorar sus tradiciones como pilares de alegría, resistencia y pertenencia.',
   },
@@ -49,63 +52,47 @@ const team = [
   },
 ];
 
-// ── Componente Modal ─────────────────────────────────────────────────────────
+// ── Modal de integrante ───────────────────────────────────────────────────────
 function MemberModal({ member, onClose }) {
   if (!member) return null;
-
   return (
     <div className="nos-modal-backdrop" onClick={onClose}>
       <div className="nos-modal-card" onClick={e => e.stopPropagation()}>
-
-        {/* Foto flotando arriba a la derecha */}
         <div className="nos-modal-photo-wrap">
           <img src={member.img} alt={member.name} className="nos-modal-photo" />
         </div>
-
-        {/* Comillas decorativas */}
         <div className="nos-modal-quote-icon">
           <i className="bi bi-quote"></i>
         </div>
-
-        {/* Bio */}
         <p className="nos-modal-bio">{member.bio}</p>
-
-        {/* Nombre */}
         <div className="nos-modal-name-row">
           <span className="nos-modal-name">{member.name}</span>
         </div>
-
-        {/* Botón cerrar */}
         <button className="nos-modal-close" onClick={onClose} aria-label="Cerrar">
           <i className="bi bi-x-lg"></i>
         </button>
-
       </div>
     </div>
   );
 }
 
-// ── Página Nosotras ──────────────────────────────────────────────────────────
+// ── Página Nosotras ───────────────────────────────────────────────────────────
 export default function Nosotras() {
   const [activeModal, setActiveModal] = useState(null);
 
   return (
     <>
-      {/* ── PROPÓSITOS ──────────────────────────────────────────── */}
+      {/* ── PROPÓSITOS ─────────────────────────────────────────────── */}
       <section className="nos-propositos-section py-5">
         <div className="container-xl py-3">
-
           <h2 className="nos-section-title text-center mb-5">Propósitos</h2>
-
           <div className="nos-propositos-box">
-            {/* Blob decorativo */}
             <div className="nos-deco-blob nos-deco-right" aria-hidden="true" />
-
             <div className="row gy-5 text-center" style={{ position: 'relative', zIndex: 1 }}>
               {propositos.map((p, i) => (
                 <div className="col-12 col-md-4" key={i}>
                   <div className="nos-prop-circle mb-3">
-                    <span className="nos-prop-emoji">{p.emoji}</span>
+                    <img src={p.icon} alt={p.title} className="nos-prop-icon" />
                   </div>
                   <h3 className="nos-prop-title mb-3">{p.title}</h3>
                   <p className="nos-prop-text">{p.text}</p>
@@ -113,22 +100,17 @@ export default function Nosotras() {
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* ── SOBRE NOSOTRAS ──────────────────────────────────────── */}
+      {/* ── SOBRE NOSOTRAS ─────────────────────────────────────────── */}
       <section className="nos-sobre-section py-5">
         <div className="container-xl py-3">
-
-          {/* Encabezado con línea y estrella */}
           <div className="d-flex align-items-center gap-3 mb-5">
             <h2 className="nos-heading-bar mb-0 text-nowrap">SOBRE NOSOTRAS.</h2>
             <div className="line-brown flex-grow-1" />
             <i className="bi bi-star-fill" style={{ color: 'var(--sand)', fontSize: '1.4rem' }} />
           </div>
-
-          {/* Tarjetas del equipo — click abre modal */}
           <div className="row gy-4 justify-content-center">
             {team.map((m, i) => (
               <div className="col-12 col-sm-6 col-md-4" key={i}>
@@ -143,8 +125,6 @@ export default function Nosotras() {
                   <div className="nos-team-photo-wrap">
                     <img src={m.img} alt={m.name} className="nos-team-photo" />
                   </div>
-
-                  {/* Overlay visible al hover */}
                   <div className="nos-team-overlay">
                     <span className="nos-team-nickname">{m.nickname}</span>
                     <span className="nos-team-click-hint">
@@ -155,27 +135,19 @@ export default function Nosotras() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ── QUIÉNES SOMOS / MARCA ───────────────────────────────── */}
+      {/* ── QUIÉNES SOMOS / MARCA ──────────────────────────────────── */}
       <section className="nos-marca-section py-5">
         <div className="container-xl py-3">
-
-          {/* Logo SHARUM */}
           <div className="text-center mb-5">
             <img src={sharuLogo} alt="Sharum Logo" className="nos-brand-logo mb-3" />
             <div className="nos-brand-name">SHARUM</div>
           </div>
-
-          {/* ¿Quiénes Somos? — banner izq + texto der */}
           <div className="row align-items-center gy-5 mb-5">
             <div className="col-12 col-md-5">
-              <div
-                className="nos-banner-rounded"
-                style={{ backgroundImage: `url(${bannerLeft})` }}
-              />
+              <div className="nos-banner-rounded" style={{ backgroundImage: `url(${bannerLeft})` }} />
             </div>
             <div className="col-12 col-md-7 text-center text-md-start">
               <h3 className="nos-marca-heading mb-3">¿QUIÉNES SOMOS?</h3>
@@ -186,8 +158,6 @@ export default function Nosotras() {
               </p>
             </div>
           </div>
-
-          {/* Nuestro Equipo — texto izq + banner der */}
           <div className="row align-items-center gy-5">
             <div className="col-12 col-md-7 text-center text-md-start">
               <h3 className="nos-marca-heading mb-3">NUESTRO EQUIPO</h3>
@@ -197,24 +167,15 @@ export default function Nosotras() {
               </p>
             </div>
             <div className="col-12 col-md-5">
-              <div
-                className="nos-banner-rounded"
-                style={{ backgroundImage: `url(${bannerRight})` }}
-              />
+              <div className="nos-banner-rounded" style={{ backgroundImage: `url(${bannerRight})` }} />
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* ── FOOTER ──────────────────────────────────────────────── */}
       <Footer />
 
-      {/* ── MODAL ───────────────────────────────────────────────── */}
-      <MemberModal
-        member={activeModal}
-        onClose={() => setActiveModal(null)}
-      />
+      <MemberModal member={activeModal} onClose={() => setActiveModal(null)} />
     </>
   );
 }
