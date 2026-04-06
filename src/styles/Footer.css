@@ -1,0 +1,76 @@
+/* ══════════════════════════════════════════════════════════
+   FOOTER
+   Componente: src/components/Footer.jsx
+   ══════════════════════════════════════════════════════════ */
+
+.footer-sharum {
+  background-color: var(--cream);
+  border-top: 3px solid var(--brown);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Íconos de redes sociales */
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  font-size: 1.4rem;
+  color: var(--black);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-social a:hover {
+  background: var(--brown);
+  color: white;
+  border-color: var(--brown);
+}
+
+/* Botón de contacto / scroll top */
+.btn-contact {
+  background: var(--black);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-contact:hover {
+  background: var(--brown);
+  color: white;
+}
+
+/* Copyright */
+.footer-copy {
+  font-style: italic;
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Blobs decorativos de fondo */
+.blob-deco {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  pointer-events: none;
+}

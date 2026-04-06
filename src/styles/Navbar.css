@@ -1,0 +1,51 @@
+/* ══════════════════════════════════════════════════════════
+   NAVBAR
+   Componente: src/components/Navbar.jsx
+   ══════════════════════════════════════════════════════════ */
+
+.navbar-sharum {
+  background-color: var(--beige-nav);
+  border-bottom: 2px solid var(--brown);
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-sharum .brand-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
+/* Grupo de botones tipo píldora */
+.nav-pill-group {
+  background: var(--white);
+  border-radius: 50px;
+  padding: 6px 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.nav-pill-group .nav-btn {
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--black);
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.nav-pill-group .nav-btn:hover,
+.nav-pill-group .nav-btn.active {
+  background: var(--beige-nav);
+  color: var(--white);
+}

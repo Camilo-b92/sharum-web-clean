@@ -1,0 +1,122 @@
+/* ══════════════════════════════════════════════════════════
+   PAGE SHAKIRA
+   Página: src/pages/Shakira.jsx
+   Ruta: /shakira
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Sobre Shakira ──────────────────────────────────────── */
+.sobre-shakira-section {
+  background: var(--cream);
+}
+
+.section-title-bar {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.shakira-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 580px;
+  text-align: center;
+}
+
+.collage-img {
+  width: 100%;
+  max-width: 680px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Carousel de Personajes ─────────────────────────────── */
+.personajes-section {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.personajes-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.personajes-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 60px 0;
+}
+
+.personaje-card {
+  border-radius: 40px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s, box-shadow 0.35s;
+  position: relative;
+}
+
+.personaje-card.active {
+  transform: scale(1.1);
+  box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.personaje-card.side {
+  transform: scale(0.88);
+  filter: brightness(0.6);
+}
+
+.personaje-card img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.personaje-card .card-label {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Flechas del carousel */
+.carousel-arrow {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  font-size: 1.3rem;
+  transition: background 0.2s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.carousel-arrow:hover { background: rgba(255, 255, 255, 0.4); }
+.carousel-arrow.left  { left: 20px; }
+.carousel-arrow.right { right: 20px; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .personaje-card img { height: 350px; }
+}

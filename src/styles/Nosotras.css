@@ -1,0 +1,315 @@
+/* ══════════════════════════════════════════════════════════
+   PAGE NOSOTRAS
+   Página: src/pages/Nosotras.jsx
+   Ruta: /nosotras
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Propósitos ─────────────────────────────────────────── */
+.nos-propositos-section {
+  background: var(--cream);
+}
+
+.nos-section-title {
+  color: var(--brown);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2.2rem;
+}
+
+.nos-propositos-box {
+  border: 3px solid var(--brown);
+  border-radius: 24px;
+  padding: 50px 40px;
+  overflow: visible;
+  position: relative;
+}
+
+/* Blob decorativo que rompe visualmente el recuadro */
+.nos-deco-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--sand);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nos-deco-right {
+  width: 180px;
+  height: 180px;
+  right: -60px;
+  bottom: -40px;
+}
+
+/* Círculo con ícono/emoji */
+.nos-prop-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: transform 0.25s;
+}
+
+.nos-prop-circle:hover {
+  transform: scale(1.08);
+}
+
+.nos-prop-emoji {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.nos-prop-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.nos-prop-text {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* ── Sobre Nosotras ─────────────────────────────────────── */
+.nos-sobre-section {
+  background: var(--cream);
+  border-top: 3px solid var(--brown);
+}
+
+.nos-heading-bar {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--black);
+}
+
+/* Tarjeta de integrante */
+.nos-team-card {
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 420px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: var(--sand);
+}
+
+.nos-team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+.nos-team-card:focus-visible {
+  outline: 3px solid var(--brown);
+  outline-offset: 4px;
+}
+
+.nos-team-photo-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.nos-team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.nos-team-card:hover .nos-team-photo {
+  transform: scale(1.04);
+}
+
+/* Overlay visible al hover */
+.nos-team-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(123, 94, 87, 0.88) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nos-team-card:hover .nos-team-overlay {
+  opacity: 1;
+}
+
+.nos-team-nickname {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.nos-team-click-hint {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 6px;
+}
+
+/* ── Modal de integrante ────────────────────────────────── */
+.nos-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: nosBackdropIn 0.2s ease;
+}
+
+@keyframes nosBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.nos-modal-card {
+  position: relative;
+  background: var(--brown);
+  color: white;
+  border-radius: 24px;
+  padding: 56px 36px 36px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  animation: nosCardIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes nosCardIn {
+  from { opacity: 0; transform: scale(0.88) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Foto flotante arriba a la derecha */
+.nos-modal-photo-wrap {
+  position: absolute;
+  top: -45px;
+  right: 28px;
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.nos-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Comillas decorativas */
+.nos-modal-quote-icon {
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.22);
+  margin-bottom: 8px;
+}
+
+/* Bio */
+.nos-modal-bio {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+/* Nombre al pie */
+.nos-modal-name-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 14px;
+}
+
+.nos-modal-name {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: white;
+}
+
+/* Botón cerrar */
+.nos-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.nos-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Marca / Quiénes Somos ──────────────────────────────── */
+.nos-marca-section {
+  background: var(--cream);
+  border-top: 3px solid var(--brown);
+}
+
+.nos-brand-logo {
+  height: 80px;
+  object-fit: contain;
+}
+
+.nos-brand-name {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.nos-marca-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--black);
+}
+
+.nos-marca-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  max-width: 580px;
+}
+
+.nos-banner-rounded {
+  min-height: 220px;
+  border-radius: 80px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--sand); /* fallback si la imagen no carga */
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nos-team-card        { height: 300px; }
+  .nos-propositos-box   { padding: 32px 20px; }
+  .nos-modal-card       { padding: 52px 24px 28px; }
+  .nos-modal-photo-wrap { width: 80px; height: 80px; top: -30px; right: 16px; }
+}
